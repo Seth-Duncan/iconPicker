@@ -1,0 +1,129 @@
+/* Variables */
+
+$icon-select-default-width: 250px;
+$icon-select-default-height: 250px;
+$icon-select-list-height: 150px;
+
+$icon-select-mobile-height: 250px;
+$icon-select-mobile-width: 100%;
+
+/*External Items That will be pulled in from other classes */
+.md-24{
+    font-size: 24px;
+}
+.md-32{
+    font-size: 32px;
+}
+.md-48{
+    font-size: 48px;
+}
+
+/* Selector Only SASS */
+
+.icon-select{
+
+    position: absolute;
+    display: none;
+    opacity: 0;
+    transition: opacity .4s linear;
+    background: #fefefe;
+    border: 1px solid #aaa;
+    z-index: 1001;
+    width: $icon-select-default-width;
+    height: $icon-select-default-height;
+
+    &--active{
+        display: block;
+    }
+
+    &--show{
+        opacity: 1;
+    }
+
+    .icon-select__container{
+
+        padding: 10px 5px;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__selected-item-row{
+
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        i{
+            color: #333;
+            padding:5px;
+            border: 1px solid rgba(0,0,0, .2);
+        }
+    }
+
+    &__filter-row{
+        text-align: center;
+
+        .icon-select__filter-clear{
+            display: none;
+            right: 37px;
+            position: absolute;
+        }
+    }
+
+    &__icon-list{
+        margin-top: 10px;
+        border-top: 1px solid #aaa;
+        padding-top: 10px;
+        overflow-y: auto;
+        height: $icon-select-list-height;
+
+        &__item{
+
+            display: inline-block;
+            width: 25%;
+            text-align: center;
+            padding: 5px 0px;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+            color: #888;
+
+            &__active, &:hover, {
+                border: 1px solid #aaa;
+                color: #333;
+            }
+
+        }
+
+    }
+
+    
+
+}
+
+
+.icon-select.icon-select--filtering{
+
+    .icon-select__filter-row{
+        .icon-select__filter-clear{
+            display: inline-block;
+        }
+    }
+
+    .icon-select__icon-list{
+
+        .icon-select__icon-list__item{
+            display: none;
+
+            &.item--matched{
+                display: inline-block;
+            }
+
+        }
+
+    }
+
+}
+
+
+/* Mobile Overrides */
+
